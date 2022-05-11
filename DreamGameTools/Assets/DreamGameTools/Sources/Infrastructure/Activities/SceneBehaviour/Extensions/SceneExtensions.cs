@@ -19,15 +19,15 @@ namespace DreamGameTools.Client
         }
         public static void Merge(this Scene sourceScene, Scene destinationScene)
         {
-            SceneManager.MergeScenes(sourceScene, destinationScene);
-        }
-        public static void MoveGameObjectToScene(this Scene sourceScene, Scene destinationScene, GameObject obj)
-        {
-            if(sourceScene.IsValid() &&destinationScene.IsValid())
+            if (destinationScene.IsValid())
             {
-                SceneManager.MoveGameObjectToScene(obj, destinationScene);
+                SceneManager.MergeScenes(sourceScene, destinationScene);
             }
         }
-        
+        public static void MoveGameObjectToScene(this Scene scene, GameObject obj)
+        {
+            SceneManager.MoveGameObjectToScene(obj, scene);
+        }
+
     }
 }
